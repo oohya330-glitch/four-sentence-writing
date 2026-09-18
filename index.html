@@ -85,13 +85,19 @@
 <style id="portal-return-preview">
 .portal-return{
   display:inline-flex;align-items:center;gap:6px;
-  margin:0 0 18px;padding:8px 13px;
-  border:1px solid var(--line);border-radius:999px;
-  background:#fff;color:var(--blue);
+  margin:0 0 18px;padding:9px 15px;
+  border:2px solid var(--blue);border-radius:999px;
+  background:var(--blue2);color:#315b8a;
   font-weight:800;text-decoration:none;font-size:.95rem;
+  box-shadow:0 2px 7px rgba(49,91,138,.10);
 }
-.portal-return:hover{background:var(--blue2);}
-@media(max-width:540px){.portal-return{font-size:.92rem;margin-bottom:16px;}}
+.portal-return:hover{
+  background:#e2eef8;
+  border-color:#315b8a;
+}
+@media(max-width:540px){
+  .portal-return{font-size:.92rem;margin-bottom:16px;padding:8px 13px;}
+}
 </style>
 
 </head>

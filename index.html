@@ -81,11 +81,25 @@
 }
 </style>
 
+
+<style id="portal-return-preview">
+.portal-return{
+  display:inline-flex;align-items:center;gap:6px;
+  margin:0 0 18px;padding:8px 13px;
+  border:1px solid var(--line);border-radius:999px;
+  background:#fff;color:var(--blue);
+  font-weight:800;text-decoration:none;font-size:.95rem;
+}
+.portal-return:hover{background:var(--blue2);}
+@media(max-width:540px){.portal-return{font-size:.92rem;margin-bottom:16px;}}
+</style>
+
 </head>
 <body>
 <main class="shell">
   <header class="top"><div class="brand"><span class="logo">4</span><span>四句話寫作訓練</span></div><button class="home-btn" id="homeBtn" hidden>回到首頁</button></header>
   <section class="home on" id="home">
+    <a class="portal-return" href="https://oohya330-glitch.github.io/lulu-english-challenge-map/">← 回到 Lulu 英文挑戰地圖</a>
     <div class="hero"><div class="eyebrow">四句話寫作練習</div><h1>從四句開始，慢慢寫出完整段落。</h1><p>今天只要完成一小步。選一回，開始練習。</p></div>
     <div class="section-label"><h2>先從這3回開始</h2><span></span></div>
     <div class="grid" id="cards1"></div>

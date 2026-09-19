@@ -219,6 +219,48 @@
 }
 </style>
 
+
+<style id="visual-hierarchy-v15">
+/* v15 final visual hierarchy pass: task headings identify the task without competing with the prompt. */
+.lesson .stage h2{font-size:calc(1.48rem * var(--learn-scale));line-height:1.48;margin:12px 0 8px;font-weight:800}
+.lesson .tag{font-size:calc(1.02rem * var(--learn-scale));line-height:1.4;padding:6px 10px;font-weight:800}
+
+/* A context whose label is 題目 is the actual prompt: readable and bold, but one step calmer than v14. */
+.lesson .context.question-context{font-size:calc(1.34rem * var(--learn-scale));line-height:1.72;font-weight:800}
+.lesson .context.question-context b{font-size:calc(1.12rem * var(--learn-scale));line-height:1.45;font-weight:800}
+.lesson .context.question-context > div{font-weight:800}
+
+/* Same-group Chinese auxiliary choices must be visually identical. */
+#lesson10 .r10-single .choice{font-size:calc(1.24rem * var(--learn-scale)) !important;line-height:1.62 !important;font-weight:750 !important}
+
+/* Desktop: option-card text remains comfortable; task headings stay secondary. */
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  .lesson .stage h2{font-size:calc(1.46rem * var(--learn-scale));line-height:1.48}
+  .lesson .tag{font-size:calc(1rem * var(--learn-scale))}
+  .lesson .context.question-context{font-size:calc(1.32rem * var(--learn-scale));line-height:1.72}
+  .lesson .context.question-context b{font-size:calc(1.10rem * var(--learn-scale))}
+  #lesson10 .r10-single .choice{font-size:calc(1.24rem * var(--learn-scale)) !important}
+}
+
+/* Tablet: do not let task headings or Chinese auxiliary choices overpower the English prompt. */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .stage h2{font-size:calc(1.50rem * var(--learn-scale));line-height:1.48}
+  .lesson .tag{font-size:calc(1.04rem * var(--learn-scale))}
+  .lesson .context.question-context{font-size:calc(1.38rem * var(--learn-scale));line-height:1.72}
+  .lesson .context.question-context b{font-size:calc(1.14rem * var(--learn-scale))}
+  #lesson10 .r10-single .choice{font-size:calc(1.28rem * var(--learn-scale)) !important}
+}
+
+@media(max-width:540px){
+  .lesson .stage h2{font-size:calc(1.42rem * var(--learn-scale));line-height:1.48}
+  .lesson .tag{font-size:calc(1rem * var(--learn-scale))}
+  .lesson .context.question-context{font-size:calc(1.30rem * var(--learn-scale));line-height:1.7}
+  .lesson .context.question-context b{font-size:calc(1.10rem * var(--learn-scale))}
+  #lesson10 .r10-single .choice{font-size:calc(1.20rem * var(--learn-scale)) !important}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">
@@ -626,6 +668,20 @@ finishBtn8.onclick=()=>showStage8(4);againBtn8.onclick=()=>location.reload();
   }
   classifyChoices(document);
   new MutationObserver(function(muts){muts.forEach(function(m){m.addedNodes.forEach(function(n){if(n.nodeType===1) classifyChoices(n);});});}).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
+
+<script id="prompt-role-v15">
+(function(){
+  function classifyPromptContexts(root){
+    (root || document).querySelectorAll('.lesson .context').forEach(function(box){
+      var label=box.querySelector('b');
+      if(label && label.textContent.trim()==='題目') box.classList.add('question-context');
+    });
+  }
+  classifyPromptContexts(document);
+  new MutationObserver(function(muts){muts.forEach(function(m){m.addedNodes.forEach(function(n){if(n.nodeType===1) classifyPromptContexts(n);});});}).observe(document.body,{childList:true,subtree:true});
 })();
 </script>
 

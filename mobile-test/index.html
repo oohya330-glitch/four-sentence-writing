@@ -99,19 +99,19 @@
 <style id="responsive-learning-readability-v3">
 /* Learning-page readability only. Homepage layout is intentionally untouched. */
 :root{--learn-scale:1}
-.lesson .tag{font-size:calc(.96rem * var(--learn-scale));line-height:1.45;padding:6px 11px}
-.lesson .stage h2{font-size:calc(clamp(1.42rem,2.5vw,1.82rem) * var(--learn-scale));line-height:1.45}
-.lesson .instruction,.lesson .feedback{font-size:calc(1.04rem * var(--learn-scale));line-height:1.75}
-.lesson .question-banner{font-size:calc(1.12rem * var(--learn-scale));line-height:1.75;padding:17px 19px}
+.lesson .tag{font-size:calc(.96rem * var(--learn-scale));line-height:1.42rem;padding:6px 11px}
+.lesson .stage h2{font-size:calc(clamp(1.42rem,2.5vw,1.82rem) * var(--learn-scale));line-height:2.35rem}
+.lesson .instruction,.lesson .feedback{font-size:calc(1.04rem * var(--learn-scale));line-height:1.82rem}
+.lesson .question-banner{font-size:calc(1.12rem * var(--learn-scale));line-height:1.96rem;padding:17px 19px}
 .lesson .question-banner strong{font-size:calc(1.02rem * var(--learn-scale));margin-bottom:3px}
-.lesson .sentence{font-size:calc(clamp(1.42rem,3vw,1.78rem) * var(--learn-scale));font-weight:800;line-height:1.75}
-.lesson .context{font-size:calc(1.14rem * var(--learn-scale));line-height:1.95}
+.lesson .sentence{font-size:calc(clamp(1.42rem,3vw,1.78rem) * var(--learn-scale));font-weight:800;line-height:2.45rem}
+.lesson .context{font-size:calc(1.14rem * var(--learn-scale));line-height:2.15rem}
 .lesson .context b{font-size:calc(1.02rem * var(--learn-scale));font-weight:900}
-.lesson .choice{font-size:calc(1.12rem * var(--learn-scale));line-height:1.72;font-weight:800;padding:16px 18px}
-.lesson .order-item,.lesson .slot.filled{font-size:calc(1.10rem * var(--learn-scale));line-height:1.72;font-weight:800}
-.lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.12rem * var(--learn-scale));line-height:1.8;font-weight:800}
-.lesson .translation-card .zh-prompt,.lesson .translation-note{font-size:calc(1.04rem * var(--learn-scale));line-height:1.75}
-.lesson .build-row select{font-size:calc(1.06rem * var(--learn-scale));line-height:1.65}
+.lesson .choice{font-size:calc(1.12rem * var(--learn-scale));line-height:1.92rem;font-weight:800;padding:16px 18px}
+.lesson .order-item,.lesson .slot.filled{font-size:calc(1.10rem * var(--learn-scale));line-height:1.90rem;font-weight:800}
+.lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.12rem * var(--learn-scale));line-height:2rem;font-weight:800}
+.lesson .translation-card .zh-prompt,.lesson .translation-note{font-size:calc(1.04rem * var(--learn-scale));line-height:1.82rem}
+.lesson .build-row select{font-size:calc(1.06rem * var(--learn-scale));line-height:1.75rem}
 
 .lesson-font-controls{display:none;align-items:center;gap:5px;padding:4px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 3px 10px rgba(44,67,85,.05)}
 .lesson-font-controls.show{display:flex}
@@ -125,18 +125,18 @@
 .header-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
 
 @media(max-width:920px){
-  .lesson .choice{font-size:calc(1.10rem * var(--learn-scale))}
+  .lesson .choice{font-size:calc(1.18rem * var(--learn-scale))}
   .lesson .context{font-size:calc(1.11rem * var(--learn-scale))}
 }
 @media(max-width:540px){
   .header-actions{gap:7px}
   .lesson-font-btn{min-width:38px;height:32px;padding:0 8px}
   .lesson .tag{font-size:calc(.93rem * var(--learn-scale));padding:6px 10px}
-  .lesson .stage h2{font-size:calc(1.38rem * var(--learn-scale))}
-  .lesson .question-banner{font-size:calc(1.08rem * var(--learn-scale));padding:15px 16px}
-  .lesson .sentence{font-size:calc(1.36rem * var(--learn-scale));line-height:1.7}
-  .lesson .context{font-size:calc(1.08rem * var(--learn-scale));line-height:1.9}
-  .lesson .choice{font-size:calc(1.20rem * var(--learn-scale));line-height:1.68;padding:15px 16px}
+  .lesson .stage h2{font-size:calc(1.38rem * var(--learn-scale));line-height:2rem}
+  .lesson .question-banner{font-size:calc(1.08rem * var(--learn-scale));line-height:1.85rem;padding:15px 16px}
+  .lesson .sentence{font-size:calc(1.36rem * var(--learn-scale));line-height:2.18rem}
+  .lesson .context{font-size:calc(1.08rem * var(--learn-scale));line-height:2rem}
+  .lesson .choice{font-size:calc(1.30rem * var(--learn-scale));line-height:2.02rem;padding:15px 16px}
   .lesson .order-item,.lesson .slot.filled,.lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.06rem * var(--learn-scale))}
 }
 </style>

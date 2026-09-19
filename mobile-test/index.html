@@ -181,6 +181,14 @@
   .lesson .translation-card .zh-prompt{font-size:calc(1.34rem * var(--learn-scale));line-height:1.7}
   .lesson .translation-card h3{font-size:calc(1.18rem * var(--learn-scale))}
 }
+/* v13 電腦版：沿用同一視覺主次原則。題目不小於英文選項；中文題目清楚，中文輔助選項退一層。 */
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  .lesson .question-banner,.lesson .context{font-size:calc(1.40rem * var(--learn-scale));line-height:1.72}
+  .lesson .choice{font-size:calc(1.36rem * var(--learn-scale));line-height:1.62}
+  .lesson .choice.choice-zh{font-size:calc(1.24rem * var(--learn-scale));line-height:1.60;font-weight:750}
+  .lesson .translation-card .zh-prompt{font-size:calc(1.34rem * var(--learn-scale));line-height:1.72;font-weight:780}
+  .lesson .translation-card h3{font-size:calc(1.18rem * var(--learn-scale));line-height:1.5}
+}
 </style>
 
 </head>

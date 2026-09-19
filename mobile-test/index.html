@@ -257,6 +257,29 @@
 }
 </style>
 
+
+<style id="tablet-final-balance-v2">
+/* 2026-09-19：僅平板版。手機與一般電腦版不變。 */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  /* 黃色「目前的內容」：英文句子至少與一般白色選項同級。
+     中文小標維持原本層級；保留懸浮縮排與多行行距。 */
+  .lesson .context .context-line{
+    font-size:calc(1.80rem * var(--learn-scale)) !important;
+    line-height:1.32 !important;
+    margin-top:.28em;
+  }
+
+  /* 所有排列組合／依序排列任務（目前全站 data-stage=5）：
+     平板上由先前放大的 2.16rem 降一級至 1.80rem，減少四張卡同時出現的壓迫感。 */
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{
+    font-size:calc(1.80rem * var(--learn-scale)) !important;
+    line-height:1.34 !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <main class="shell">

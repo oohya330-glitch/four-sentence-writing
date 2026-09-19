@@ -296,6 +296,31 @@
 }
 </style>
 
+
+<style id="tablet-readability-v17">
+/* v17: tablet readability pass. Raise the whole reading interface one step while preserving hierarchy. */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  /* Main prompt and its functional label scale together. */
+  .lesson .question-banner{font-size:calc(1.72rem * var(--learn-scale));line-height:1.72}
+  .lesson .question-banner strong{font-size:calc(1.34rem * var(--learn-scale));line-height:1.45}
+  .lesson .context.question-context{font-size:calc(1.52rem * var(--learn-scale));line-height:1.72}
+  .lesson .context.question-context b{font-size:calc(1.26rem * var(--learn-scale));line-height:1.45}
+
+  /* Supporting copy and navigation rise with the reading scale, but stay visually secondary. */
+  .lesson .instruction,.lesson .translation-note{font-size:calc(1.36rem * var(--learn-scale));line-height:1.78}
+  .lesson .task-back{font-size:calc(1.16rem * var(--learn-scale));line-height:1.5}
+  .lesson .page-nav .nav-btn,.lesson .page-nav .nav-home{font-size:calc(1.14rem * var(--learn-scale));line-height:1.45}
+
+  /* Functional/task labels remain identifiable without becoming the focal point. */
+  .lesson .tag{font-size:calc(1.12rem * var(--learn-scale));line-height:1.4}
+
+  /* Lesson 10 bilingual course cards: both languages one step larger; English remains primary. */
+  #lesson10 .choice .course-name{font-size:.92em}
+  #lesson10 .choice .course-en{font-size:1.12em}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">

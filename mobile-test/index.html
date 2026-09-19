@@ -128,6 +128,11 @@
   .lesson .choice{font-size:calc(1.80rem * var(--learn-scale))}
   .lesson .context{font-size:calc(1.43rem * var(--learn-scale))}
 }
+/* 平板橫向：維持與平板直向相同的選項與「目前的內容」字級 */
+@media (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .choice{font-size:calc(1.80rem * var(--learn-scale))}
+  .lesson .context{font-size:calc(1.43rem * var(--learn-scale))}
+}
 @media(max-width:540px){
   .header-actions{gap:7px}
   .lesson .choices{gap:7px}

@@ -532,6 +532,40 @@
 }
 </style>
 
+
+<style id="desktop-tablet-balance-v24">
+/* v24: based on v23. Desktop + tablet balance pass across rounds 1–10.
+   In numbered yellow Current content blocks, English stays bold but uses the
+   same reading size as the white English choice cards. All numbered lines use
+   hanging alignment so wrapped lines begin under the first English word. */
+.lesson .context .numbered-line{
+  display:grid;
+  grid-template-columns:1.45em minmax(0,1fr);
+  column-gap:.16em;
+  align-items:start;
+}
+.lesson .context .numbered-num{display:block;align-self:start}
+.lesson .context .numbered-text{display:block;min-width:0;font-weight:800}
+
+/* Desktop */
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  .lesson .stage:has(.context .numbered-line) .context,
+  .lesson .stage:has(.context .numbered-line) .choice:not(.choice-zh){
+    font-size:calc(1.40rem * var(--learn-scale));
+    line-height:1.68;
+  }
+}
+/* Tablet portrait + landscape */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .stage:has(.context .numbered-line) .context,
+  .lesson .stage:has(.context .numbered-line) .choice:not(.choice-zh){
+    font-size:calc(1.46rem * var(--learn-scale));
+    line-height:1.70;
+  }
+}
+</style>
+
 </head>
 <body>
 <main class="shell">

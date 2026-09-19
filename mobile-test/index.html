@@ -716,5 +716,54 @@ finishBtn8.onclick=()=>showStage8(4);againBtn8.onclick=()=>location.reload();
 })();
 </script>
 
+
+<style id="mobile-order-and-hanging-final-v3">
+/* 2026-09-19 最終調整：
+   1) 排列組合字級只修手機：任務5回到任務1–4/6的一般卡片字級。
+   2) 懸浮縮排修手機＋平板：續行精確對齊第一行英文正文起點。
+   3) 一般電腦版不變；平板排列組合維持上一版已確認的舒適字級。 */
+@media (max-width:540px){
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{
+    font-size:calc(1.42rem * var(--learn-scale)) !important;
+    line-height:2.02rem !important;
+  }
+}
+@media (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .context .context-line{
+    display:grid !important;
+    grid-template-columns:max-content minmax(0,1fr);
+    column-gap:.34em;
+    padding-left:0 !important;
+    text-indent:0 !important;
+    align-items:start;
+  }
+  .lesson .context .context-line .context-number,
+  .lesson .context .context-line .context-text{
+    display:block;
+    min-width:0;
+  }
+}
+</style>
+<script id="context-exact-hanging-final-v3">
+/* 將 ①②③④ 與英文正文拆成兩欄；正文自身換行，因此每一續行都精確對齊第一行正文。 */
+(()=>{
+  document.querySelectorAll('.lesson .context .context-line').forEach(line=>{
+    if(line.dataset.exactHangingReady)return;
+    const raw=line.textContent.trim();
+    const m=raw.match(/^([①②③④])\s*(.*)$/s);
+    if(!m)return;
+    line.textContent='';
+    const num=document.createElement('span');
+    num.className='context-number'; num.textContent=m[1];
+    const txt=document.createElement('span');
+    txt.className='context-text'; txt.textContent=m[2];
+    line.append(num,txt);
+    line.dataset.exactHangingReady='1';
+  });
+})();
+</script>
+
 </body>
 </html>

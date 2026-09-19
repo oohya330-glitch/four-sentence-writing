@@ -85,25 +85,205 @@
 <style id="portal-return-preview">
 .portal-return{
   display:inline-flex;align-items:center;gap:6px;
-  margin:0 0 18px;padding:9px 15px;
-  border:2px solid var(--blue);border-radius:999px;
-  background:var(--blue2);color:#315b8a;
+  margin:0 0 18px;padding:8px 13px;
+  border:1px solid var(--line);border-radius:999px;
+  background:#fff;color:var(--blue);
   font-weight:800;text-decoration:none;font-size:.95rem;
-  box-shadow:0 2px 7px rgba(49,91,138,.10);
 }
-.portal-return:hover{
-  background:#e2eef8;
-  border-color:#315b8a;
+.portal-return:hover{background:var(--blue2);}
+@media(max-width:540px){.portal-return{font-size:.92rem;margin-bottom:16px;}}
+</style>
+
+
+
+<style id="responsive-learning-readability-v4">
+/* Learning-page readability only. Homepage layout is intentionally untouched. */
+:root{--learn-scale:1}
+.lesson .tag{font-size:calc(1.15rem * var(--learn-scale));line-height:1.42rem;padding:6px 11px}
+.lesson .stage h2{font-size:calc(clamp(1.70rem,3vw,2.18rem) * var(--learn-scale));line-height:2.35rem}
+.lesson .instruction,.lesson .feedback{font-size:calc(1.25rem * var(--learn-scale));line-height:1.82rem}
+.lesson .question-banner{font-size:calc(1.34rem * var(--learn-scale));line-height:1.96rem;padding:17px 19px}
+.lesson .question-banner strong{font-size:calc(1.22rem * var(--learn-scale));margin-bottom:3px}
+.lesson .sentence{font-size:calc(clamp(1.70rem,3.6vw,2.14rem) * var(--learn-scale));font-weight:800;line-height:2.45rem}
+.lesson .context{font-size:calc(1.37rem * var(--learn-scale));line-height:2.15rem}
+.lesson .context b{font-size:calc(1.22rem * var(--learn-scale));font-weight:900}
+.lesson .choice{font-size:calc(1.22rem * var(--learn-scale));line-height:1.92rem;font-weight:800;padding:16px 18px}
+.lesson .order-item,.lesson .slot.filled{font-size:calc(1.22rem * var(--learn-scale));line-height:1.92rem;font-weight:800}
+.lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.34rem * var(--learn-scale));line-height:2rem;font-weight:800}
+.lesson .translation-card .zh-prompt,.lesson .translation-note{font-size:calc(1.25rem * var(--learn-scale));line-height:1.82rem}
+.lesson .build-row select{font-size:calc(1.27rem * var(--learn-scale));line-height:1.75rem}
+
+.lesson-font-controls{display:none;align-items:center;gap:5px;padding:4px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 3px 10px rgba(44,67,85,.05)}
+.lesson-font-controls.show{display:flex}
+.lesson-font-btn{border:0;background:transparent;color:var(--blue);min-width:40px;height:34px;padding:0 10px;border-radius:999px;font-weight:900;cursor:pointer;line-height:1}
+.lesson-font-btn:hover{background:var(--blue2)}
+.lesson-font-btn:disabled{opacity:.45;cursor:default;background:transparent}
+.lesson-font-btn.active{background:var(--blue);color:#fff}
+.lesson-font-percent{min-width:46px;text-align:center;color:var(--muted);font-size:.84rem;font-weight:800;white-space:nowrap}
+.lesson .context{font-weight:800}
+.lesson .context b{font-weight:900}
+.header-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+
+@media (min-width:541px) and (max-width:920px){
+  .lesson .choice,.lesson .order-item,.lesson .slot.filled{font-size:calc(1.80rem * var(--learn-scale))}
+  .lesson .context{font-size:calc(1.43rem * var(--learn-scale))}
+}
+/* 平板橫向：維持與平板直向相同的選項與「目前的內容」字級 */
+@media (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .choice,.lesson .order-item,.lesson .slot.filled{font-size:calc(1.80rem * var(--learn-scale))}
+  .lesson .context{font-size:calc(1.43rem * var(--learn-scale))}
 }
 @media(max-width:540px){
-  .portal-return{font-size:.92rem;margin-bottom:16px;padding:8px 13px;}
+  .header-actions{gap:7px}
+  .lesson .choices{gap:7px}
+  .lesson-font-btn{min-width:38px;height:32px;padding:0 8px}
+  .lesson .tag{font-size:calc(1.12rem * var(--learn-scale));padding:6px 10px}
+  .lesson .stage h2{font-size:calc(1.66rem * var(--learn-scale));line-height:2rem}
+  .lesson .question-banner{font-size:calc(1.30rem * var(--learn-scale));line-height:1.85rem;padding:15px 16px}
+  .lesson .sentence{font-size:calc(1.63rem * var(--learn-scale));line-height:2.18rem}
+  .lesson .context{font-size:calc(1.30rem * var(--learn-scale));line-height:2rem}
+  .lesson .choice{font-size:calc(1.42rem * var(--learn-scale));line-height:2.02rem;padding:13px 15px}
+  .lesson .order-item,.lesson .slot.filled{font-size:calc(1.42rem * var(--learn-scale));line-height:2.02rem}
+  .lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.27rem * var(--learn-scale))}
+}
+
+/* v13: 任務 5 選項字條以原字級放大 120%，其餘內容不變 */
+.lesson [data-stage="5"] .order-item,
+.lesson [data-stage="5"] .slot.filled{font-size:calc(1.464rem * var(--learn-scale))}
+@media (min-width:541px) and (max-width:920px){
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{font-size:calc(2.16rem * var(--learn-scale))}
+}
+@media (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{font-size:calc(2.16rem * var(--learn-scale))}
+}
+@media(max-width:540px){
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{font-size:calc(1.704rem * var(--learn-scale))}
+}
+</style>
+
+
+<style id="task6-readable-dropdowns-v1">
+/* 任務 6：只針對手機與觸控平板使用大字閱讀式選單；電腦版維持原本 select。 */
+.lesson [data-stage="6"] .build-row .readable-select-button{
+  display:none;
+  width:100%; min-height:62px; padding:13px 48px 13px 16px;
+  border:2px solid var(--line); border-radius:12px; background:#fff; color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  font-size:calc(1.22rem * var(--learn-scale)); line-height:1.92rem; font-weight:700;
+  text-align:left; cursor:pointer; position:relative;
+}
+.lesson [data-stage="6"] .build-row .readable-select-button::after{
+  content:"⌄"; position:absolute; right:16px; top:50%; transform:translateY(-55%);
+  font-size:1.35em; font-weight:900; color:var(--ink);
+}
+.lesson [data-stage="6"] .build-row .readable-select-button:focus{
+  outline:3px solid rgba(83,157,213,.28); border-color:#69b7ee;
+}
+@media (max-width:920px), (min-width:921px) and (max-width:1366px) and (hover:none){
+  .lesson [data-stage="6"] .build-row .readable-select-button{display:block}
+  .lesson [data-stage="6"] .build-row select.readable-select-source{
+    position:absolute!important; width:1px!important; height:1px!important; padding:0!important;
+    margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important;
+    white-space:nowrap!important; border:0!important;
+  }
+}
+.task6-select-popover{
+  position:fixed; z-index:9999; left:50%; transform:translateX(-50%);
+  width:min(900px,calc(100vw - 40px)); max-height:min(70vh,560px); overflow:auto;
+  background:#fff; border:1px solid var(--line); border-radius:18px;
+  box-shadow:0 18px 50px rgba(31,55,74,.20); padding:10px;
+}
+.task6-select-option{
+  display:block; width:100%; border:0; border-radius:12px; background:#fff; color:var(--ink);
+  padding:14px 16px; text-align:left; cursor:pointer;
+  font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  font-size:calc(1.22rem * var(--learn-scale,1)); line-height:1.92rem; font-weight:700;
+  white-space:normal; overflow-wrap:anywhere;
+}
+.task6-select-option:hover,.task6-select-option:focus{background:var(--blue2);outline:none}
+.task6-select-option[aria-selected="true"]{background:#edf6fd;font-weight:850}
+@media (min-width:541px) and (max-width:920px){
+  .lesson [data-stage="6"] .build-row .readable-select-button,
+  .task6-select-option{font-size:calc(1.80rem * var(--learn-scale,1));line-height:2.45rem}
+  .task6-select-popover{width:min(94vw,1000px);padding:12px}
+}
+@media (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson [data-stage="6"] .build-row .readable-select-button,
+  .task6-select-option{font-size:calc(1.80rem * var(--learn-scale,1));line-height:2.45rem}
+  .task6-select-popover{width:min(94vw,1100px);padding:12px}
+}
+@media(max-width:540px){
+  .lesson [data-stage="6"] .build-row .readable-select-button,
+  .task6-select-option{font-size:calc(1.42rem * var(--learn-scale,1));line-height:2.02rem}
+  .task6-select-popover{width:calc(100vw - 24px);padding:8px;border-radius:15px}
+  .task6-select-option{padding:13px 14px}
+}
+</style>
+
+
+<style id="tablet-readability-fixes-v1">
+/* 2026-09-19：僅平板版微調。手機與一般桌機維持原樣。 */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  /* 多行英文選項／排序字卡：保留大字，增加續行行距 */
+  .lesson .choice,
+  .lesson .order-item,
+  .lesson .slot.filled{
+    line-height:1.32 !important;
+  }
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{
+    line-height:1.28 !important;
+  }
+
+  /* 黃色「目前的內容」：編號獨立欄位，續行與英文正文對齊 */
+  .lesson .context{line-height:1.48 !important;}
+  .lesson .context .context-line{
+    display:block;
+    padding-left:1.65em;
+    text-indent:-1.65em;
+    margin-top:.18em;
+  }
+
+  /* 任務 6 的欄位名稱：現象／具體情況／原因／影響 */
+  .lesson [data-stage="6"] .build-row label{
+    font-size:calc(1.28rem * var(--learn-scale));
+    line-height:1.5;
+    margin-bottom:9px;
+  }
+}
+</style>
+
+
+<style id="tablet-final-balance-v2">
+/* 2026-09-19：僅平板版。手機與一般電腦版不變。 */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  /* 黃色「目前的內容」：英文句子至少與一般白色選項同級。
+     中文小標維持原本層級；保留懸浮縮排與多行行距。 */
+  .lesson .context .context-line{
+    font-size:calc(1.80rem * var(--learn-scale)) !important;
+    line-height:1.32 !important;
+    margin-top:.28em;
+  }
+
+  /* 所有排列組合／依序排列任務（目前全站 data-stage=5）：
+     平板上由先前放大的 2.16rem 降一級至 1.80rem，減少四張卡同時出現的壓迫感。 */
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{
+    font-size:calc(1.80rem * var(--learn-scale)) !important;
+    line-height:1.34 !important;
+  }
 }
 </style>
 
 </head>
 <body>
 <main class="shell">
-  <header class="top"><div class="brand"><span class="logo">4</span><span>四句話寫作訓練</span></div><button class="home-btn" id="homeBtn" hidden>回到首頁</button></header>
+  <header class="top"><div class="brand"><span class="logo">4</span><span>四句話寫作訓練</span></div><div class="header-actions"><div class="lesson-font-controls" id="lessonFontControls" aria-label="調整學習內容字體"><button class="lesson-font-btn active" id="fontDefault" type="button" aria-label="恢復預設字體">A</button><span class="lesson-font-percent" id="fontPercent" aria-live="polite">100%</span><button class="lesson-font-btn" id="fontPlus" type="button" aria-label="放大字體">A＋</button></div><button class="home-btn" id="homeBtn" hidden>回到首頁</button></div></header>
   <section class="home on" id="home">
     <a class="portal-return" href="https://oohya330-glitch.github.io/lulu-english-challenge-map/">← 回到 Lulu 英文挑戰地圖</a>
     <div class="hero"><div class="eyebrow">四句話寫作練習</div><h1>從四句開始，慢慢寫出完整段落。</h1><p>今天只要完成一小步。選一回，開始練習。</p></div>
@@ -299,6 +479,8 @@
   </section>
 </main>
 <script>
+// Ensure element IDs are available consistently on mobile browsers as well as desktop browsers.
+document.querySelectorAll('[id]').forEach(el=>{ if(!(el.id in window)) window[el.id]=el; });
 const lessons=[
 ['說明選擇與理由','選擇 → 理由 → 例子 → 結果'],['說明現象與影響','現象 → 情況 → 原因 → 影響'],['提出問題與方法','問題 → 方法 → 做法 → 結果'],['表達看法與理由','看法 → 理由 → 例子 → 解釋'],['比較並做出選擇','選項 → 比較 → 選擇＋理由 → 例子'],['分享經驗與收穫','經驗 → 經過 → 感受 → 收穫'],['從問題想到解決方法','問題 → 原因 → 解決方法 → 結果'],['看題目選發展方式','讀懂要求 → 選擇結構'],['修正不連貫的句子','找問題 → 改內容'],['換個題目，也能寫出四句','選擇 → 理由 → 例子 → 結果']];
 function makeCard(item,i){const open=i<8,b=document.createElement('button');b.className='card '+(open?'active':'');b.disabled=!open;b.innerHTML=`<span class="num">${i+1}</span><span class="status">${open?'開始練習':'準備中'}</span><h3>${item[0]}</h3><div class="path">${item[1]}</div>`;if(i===0)b.onclick=openLesson;if(i===1)b.onclick=openLesson2;if(i===2)b.onclick=openLesson3;if(i===3)b.onclick=openLesson4;if(i===4)b.onclick=openLesson5;if(i===5)b.onclick=openLesson6;if(i===6)b.onclick=openLesson7;if(i===7)b.onclick=openLesson8;return b}
@@ -451,7 +633,137 @@ lesson8.querySelectorAll('.translation-card').forEach(card=>{const hintBtn=card.
 fullAnswerBtn8.onclick=()=>{const show=fullAnswer8.classList.toggle('show');fullAnswerBtn8.textContent=show?'收起完整參考段落':'我完成了，查看完整參考段落';finishBtn8.classList.toggle('show',show)};
 finishBtn8.onclick=()=>showStage8(4);againBtn8.onclick=()=>location.reload();
 </script>
+<script>
+(() => {
+  const controls=document.getElementById('lessonFontControls');
+  const normal=document.getElementById('fontDefault');
+  const plus=document.getElementById('fontPlus');
+  const percent=document.getElementById('fontPercent');
+  const home=document.getElementById('home');
+  const levels=[1,1.10,1.20];
+  const labels=['100%','110%','120%'];
+  let level=0;
+  function apply(){
+    document.documentElement.style.setProperty('--learn-scale',levels[level]);
+    normal.classList.toggle('active',level===0);
+    plus.classList.toggle('active',level>0 && level<levels.length-1);
+    percent.textContent=labels[level];
+    plus.disabled=level===levels.length-1;
+    plus.setAttribute('aria-disabled',String(plus.disabled));
+  }
+  normal.addEventListener('click',()=>{level=0;apply()});
+  plus.addEventListener('click',()=>{level=Math.min(level+1,levels.length-1);apply()});
+  const sync=()=>controls.classList.toggle('show',!home.classList.contains('on'));
+  new MutationObserver(sync).observe(home,{attributes:true,attributeFilter:['class']});
+  sync(); apply();
+})();
+</script>
 <script src="lesson9.js"></script>
 <script src="lesson10.js"></script>
+
+<script id="task6-readable-dropdowns-script-v1">
+(()=>{
+  let pop=null, activeButton=null;
+  const close=()=>{ if(pop){pop.remove();pop=null;} if(activeButton){activeButton.setAttribute('aria-expanded','false');activeButton=null;} };
+  const position=(button)=>{
+    if(!pop)return;
+    const r=button.getBoundingClientRect(), gap=8, h=pop.offsetHeight;
+    let top=r.bottom+gap;
+    if(top+h>innerHeight-12 && r.top-h-gap>12) top=r.top-h-gap;
+    top=Math.max(12,Math.min(top,innerHeight-h-12)); pop.style.top=top+'px';
+  };
+  const open=(select,button)=>{
+    close(); activeButton=button; button.setAttribute('aria-expanded','true');
+    pop=document.createElement('div'); pop.className='task6-select-popover'; pop.setAttribute('role','listbox');
+    [...select.options].forEach(opt=>{
+      const b=document.createElement('button'); b.type='button'; b.className='task6-select-option';
+      b.textContent=opt.textContent; b.dataset.value=opt.value; b.setAttribute('role','option');
+      b.setAttribute('aria-selected',String(select.value===opt.value));
+      b.onclick=()=>{ select.value=opt.value; button.textContent=opt.textContent; select.dispatchEvent(new Event('change',{bubbles:true})); close(); button.focus(); };
+      pop.appendChild(b);
+    });
+    document.body.appendChild(pop); position(button);
+  };
+  const enhance=(select)=>{
+    if(select.dataset.readableEnhanced)return; select.dataset.readableEnhanced='1'; select.classList.add('readable-select-source');
+    const button=document.createElement('button'); button.type='button'; button.className='readable-select-button';
+    button.textContent=select.options[select.selectedIndex]?.textContent||'請選擇'; button.setAttribute('aria-haspopup','listbox'); button.setAttribute('aria-expanded','false');
+    select.insertAdjacentElement('afterend',button);
+    button.onclick=()=> pop&&activeButton===button ? close() : open(select,button);
+    const sync=()=>{button.textContent=select.options[select.selectedIndex]?.textContent||'請選擇';};
+    select.addEventListener('change',sync); new MutationObserver(sync).observe(select,{childList:true,subtree:true});
+  };
+  if(matchMedia('(max-width:920px), (min-width:921px) and (max-width:1366px) and (hover:none)').matches){ document.querySelectorAll('.lesson [data-stage="6"] .build-row select').forEach(enhance); }
+  document.addEventListener('pointerdown',e=>{if(pop&&!pop.contains(e.target)&&e.target!==activeButton)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+  addEventListener('resize',()=>{if(pop&&activeButton)position(activeButton)});
+  addEventListener('scroll',close,true);
+})();
+</script>
+
+<script id="context-hanging-indent-v1">
+/* 將「目前的內容」中的編號句包成獨立行，供平板懸浮縮排使用。 */
+(()=>{
+  document.querySelectorAll('.lesson .context').forEach(box=>{
+    if(box.dataset.hangingReady)return;
+    const html=box.innerHTML;
+    if(!/[①②③④]/.test(html))return;
+    const parts=html.split(/<br\s*\/?>(?=\s*[①②③④])/i);
+    if(parts.length<2)return;
+    box.innerHTML=parts.map((part,i)=> i===0 ? part : '<span class="context-line">'+part.trim()+'</span>').join('');
+    box.dataset.hangingReady='1';
+  });
+})();
+</script>
+
+
+<style id="mobile-order-and-hanging-final-v3">
+/* 2026-09-19 最終調整：
+   1) 排列組合字級只修手機：任務5回到任務1–4/6的一般卡片字級。
+   2) 懸浮縮排修手機＋平板：續行精確對齊第一行英文正文起點。
+   3) 一般電腦版不變；平板排列組合維持上一版已確認的舒適字級。 */
+@media (max-width:540px){
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{
+    font-size:calc(1.42rem * var(--learn-scale)) !important;
+    line-height:2.02rem !important;
+  }
+}
+@media (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .context .context-line{
+    display:grid !important;
+    grid-template-columns:max-content minmax(0,1fr);
+    column-gap:.34em;
+    padding-left:0 !important;
+    text-indent:0 !important;
+    align-items:start;
+  }
+  .lesson .context .context-line .context-number,
+  .lesson .context .context-line .context-text{
+    display:block;
+    min-width:0;
+  }
+}
+</style>
+<script id="context-exact-hanging-final-v3">
+/* 將 ①②③④ 與英文正文拆成兩欄；正文自身換行，因此每一續行都精確對齊第一行正文。 */
+(()=>{
+  document.querySelectorAll('.lesson .context .context-line').forEach(line=>{
+    if(line.dataset.exactHangingReady)return;
+    const raw=line.textContent.trim();
+    const m=raw.match(/^([①②③④])\s*(.*)$/s);
+    if(!m)return;
+    line.textContent='';
+    const num=document.createElement('span');
+    num.className='context-number'; num.textContent=m[1];
+    const txt=document.createElement('span');
+    txt.className='context-text'; txt.textContent=m[2];
+    line.append(num,txt);
+    line.dataset.exactHangingReady='1';
+  });
+})();
+</script>
+
 </body>
 </html>

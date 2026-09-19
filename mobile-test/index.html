@@ -223,6 +223,40 @@
 }
 </style>
 
+
+<style id="tablet-readability-fixes-v1">
+/* 2026-09-19：僅平板版微調。手機與一般桌機維持原樣。 */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  /* 多行英文選項／排序字卡：保留大字，增加續行行距 */
+  .lesson .choice,
+  .lesson .order-item,
+  .lesson .slot.filled{
+    line-height:1.32 !important;
+  }
+  .lesson [data-stage="5"] .order-item,
+  .lesson [data-stage="5"] .slot.filled{
+    line-height:1.28 !important;
+  }
+
+  /* 黃色「目前的內容」：編號獨立欄位，續行與英文正文對齊 */
+  .lesson .context{line-height:1.48 !important;}
+  .lesson .context .context-line{
+    display:block;
+    padding-left:1.65em;
+    text-indent:-1.65em;
+    margin-top:.18em;
+  }
+
+  /* 任務 6 的欄位名稱：現象／具體情況／原因／影響 */
+  .lesson [data-stage="6"] .build-row label{
+    font-size:calc(1.28rem * var(--learn-scale));
+    line-height:1.5;
+    margin-bottom:9px;
+  }
+}
+</style>
+
 </head>
 <body>
 <main class="shell">
@@ -641,6 +675,21 @@ finishBtn8.onclick=()=>showStage8(4);againBtn8.onclick=()=>location.reload();
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
   addEventListener('resize',()=>{if(pop&&activeButton)position(activeButton)});
   addEventListener('scroll',close,true);
+})();
+</script>
+
+<script id="context-hanging-indent-v1">
+/* 將「目前的內容」中的編號句包成獨立行，供平板懸浮縮排使用。 */
+(()=>{
+  document.querySelectorAll('.lesson .context').forEach(box=>{
+    if(box.dataset.hangingReady)return;
+    const html=box.innerHTML;
+    if(!/[①②③④]/.test(html))return;
+    const parts=html.split(/<br\s*\/?>(?=\s*[①②③④])/i);
+    if(parts.length<2)return;
+    box.innerHTML=parts.map((part,i)=> i===0 ? part : '<span class="context-line">'+part.trim()+'</span>').join('');
+    box.dataset.hangingReady='1';
+  });
 })();
 </script>
 

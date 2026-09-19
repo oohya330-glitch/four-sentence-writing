@@ -147,6 +147,42 @@
 }
 </style>
 
+
+<style id="visual-hierarchy-v12">
+/* v12: 全站學習頁視覺層級整理。英文為主、中文依功能分級；首頁不受影響。 */
+.lesson .question-banner{font-size:calc(1.40rem * var(--learn-scale));line-height:1.72}
+.lesson .question-banner strong{font-size:calc(1.16rem * var(--learn-scale));line-height:1.45}
+.lesson .context{font-size:calc(1.40rem * var(--learn-scale));line-height:1.72}
+.lesson .context b{font-size:calc(1.16rem * var(--learn-scale));line-height:1.45}
+.lesson .choice{font-size:calc(1.40rem * var(--learn-scale));line-height:1.62}
+.lesson .choice.choice-zh{font-size:calc(1.28rem * var(--learn-scale));line-height:1.62;font-weight:750}
+.lesson .translation-card .zh-prompt{font-size:calc(1.34rem * var(--learn-scale));line-height:1.72;font-weight:780}
+.lesson .translation-card h3{font-size:calc(1.17rem * var(--learn-scale));line-height:1.5}
+/* 第十回中英並列選項：英文是主體，中文只作辨識輔助。 */
+#lesson10 .choice .course-name{font-size:.84em;font-weight:800;line-height:1.4}
+#lesson10 .choice .course-en{font-size:1em;font-weight:800;line-height:1.48;margin-top:2px}
+
+@media (min-width:541px) and (max-width:920px){
+  .lesson .question-banner,.lesson .context,.lesson .choice{font-size:calc(1.58rem * var(--learn-scale))}
+  .lesson .choice.choice-zh{font-size:calc(1.38rem * var(--learn-scale))}
+  .lesson .translation-card .zh-prompt{font-size:calc(1.46rem * var(--learn-scale))}
+  .lesson .translation-card h3{font-size:calc(1.28rem * var(--learn-scale))}
+}
+@media (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .question-banner,.lesson .context,.lesson .choice{font-size:calc(1.58rem * var(--learn-scale))}
+  .lesson .choice.choice-zh{font-size:calc(1.38rem * var(--learn-scale))}
+  .lesson .translation-card .zh-prompt{font-size:calc(1.46rem * var(--learn-scale))}
+  .lesson .translation-card h3{font-size:calc(1.28rem * var(--learn-scale))}
+}
+@media(max-width:540px){
+  .lesson .question-banner,.lesson .context{font-size:calc(1.40rem * var(--learn-scale));line-height:1.72}
+  .lesson .choice{font-size:calc(1.36rem * var(--learn-scale));line-height:1.62}
+  .lesson .choice.choice-zh{font-size:calc(1.24rem * var(--learn-scale));line-height:1.6}
+  .lesson .translation-card .zh-prompt{font-size:calc(1.34rem * var(--learn-scale));line-height:1.7}
+  .lesson .translation-card h3{font-size:calc(1.18rem * var(--learn-scale))}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">
@@ -527,5 +563,21 @@ finishBtn8.onclick=()=>showStage8(4);againBtn8.onclick=()=>location.reload();
 </script>
 <script src="lesson9.js"></script>
 <script src="lesson10.js"></script>
+
+<script id="visual-hierarchy-classifier-v12">
+(() => {
+  const classify = root => {
+    (root.matches?.('.choice') ? [root] : root.querySelectorAll?.('.choice') || []).forEach(el => {
+      const t=(el.textContent||'').trim();
+      const zh=(t.match(/[\u3400-\u9fff]/g)||[]).length;
+      const en=(t.match(/[A-Za-z]/g)||[]).length;
+      el.classList.toggle('choice-zh', zh>0 && en < Math.max(4, zh*.35));
+    });
+  };
+  classify(document);
+  new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1) classify(n)}))).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
 </body>
 </html>

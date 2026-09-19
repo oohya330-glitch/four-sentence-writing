@@ -140,7 +140,7 @@
   document.querySelector('main').appendChild(section);
 
   const style = document.createElement('style');
-  style.textContent = `#lesson10 [hidden]{display:none!important} #lesson10 .choice[aria-pressed="true"]{border-color:#527ba1;background:#edf4fa} #lesson10 .course-name{display:block;font-weight:900;font-size:inherit;line-height:inherit} #lesson10 .course-en{display:block;color:#62788b;font-weight:700;margin-top:2px} #lesson10 .answer-box.show{display:block} #lesson10 .context div{margin-top:5px}`;
+  style.textContent = `#lesson10 [hidden]{display:none!important} #lesson10 .choice[aria-pressed="true"]{border-color:#527ba1;background:#edf4fa} #lesson10 .course-name{display:block;font-weight:900;font-size:1.08rem} #lesson10 .course-en{display:block;color:#62788b;font-weight:700;margin-top:2px} #lesson10 .answer-box.show{display:block} #lesson10 .context div{margin-top:5px}`;
   document.head.appendChild(style);
 
   const $ = id => section.querySelector('#' + id);

@@ -108,7 +108,7 @@
 .lesson .context{font-size:calc(1.37rem * var(--learn-scale));line-height:2.15rem}
 .lesson .context b{font-size:calc(1.22rem * var(--learn-scale));font-weight:900}
 .lesson .choice{font-size:calc(1.22rem * var(--learn-scale));line-height:1.92rem;font-weight:800;padding:16px 18px}
-.lesson .order-item,.lesson .slot.filled{font-size:calc(1.32rem * var(--learn-scale));line-height:1.90rem;font-weight:800}
+.lesson .order-item,.lesson .slot.filled{font-size:calc(1.22rem * var(--learn-scale));line-height:1.92rem;font-weight:800}
 .lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.34rem * var(--learn-scale));line-height:2rem;font-weight:800}
 .lesson .translation-card .zh-prompt,.lesson .translation-note{font-size:calc(1.25rem * var(--learn-scale));line-height:1.82rem}
 .lesson .build-row select{font-size:calc(1.27rem * var(--learn-scale));line-height:1.75rem}
@@ -125,12 +125,12 @@
 .header-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
 
 @media (min-width:541px) and (max-width:920px){
-  .lesson .choice{font-size:calc(1.80rem * var(--learn-scale))}
+  .lesson .choice,.lesson .order-item,.lesson .slot.filled{font-size:calc(1.80rem * var(--learn-scale))}
   .lesson .context{font-size:calc(1.43rem * var(--learn-scale))}
 }
 /* 平板橫向：維持與平板直向相同的選項與「目前的內容」字級 */
 @media (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
-  .lesson .choice{font-size:calc(1.80rem * var(--learn-scale))}
+  .lesson .choice,.lesson .order-item,.lesson .slot.filled{font-size:calc(1.80rem * var(--learn-scale))}
   .lesson .context{font-size:calc(1.43rem * var(--learn-scale))}
 }
 @media(max-width:540px){
@@ -143,7 +143,8 @@
   .lesson .sentence{font-size:calc(1.63rem * var(--learn-scale));line-height:2.18rem}
   .lesson .context{font-size:calc(1.30rem * var(--learn-scale));line-height:2rem}
   .lesson .choice{font-size:calc(1.42rem * var(--learn-scale));line-height:2.02rem;padding:13px 15px}
-  .lesson .order-item,.lesson .slot.filled,.lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.27rem * var(--learn-scale))}
+  .lesson .order-item,.lesson .slot.filled{font-size:calc(1.42rem * var(--learn-scale));line-height:2.02rem}
+  .lesson .paragraph,.lesson .full-answer p,.lesson .answer-box strong{font-size:calc(1.27rem * var(--learn-scale))}
 }
 </style>
 

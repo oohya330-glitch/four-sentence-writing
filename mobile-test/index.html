@@ -376,6 +376,46 @@
 }
 </style>
 
+
+<style id="lesson9-answer-hierarchy-v20">
+/* v20: 第九回支持理由參考答案。三種裝置皆以英文為第一視覺，中文翻譯第二，補充說明第三。 */
+#lesson9 #answerBox9 > strong{
+  display:block;
+  font-size:calc(1.58rem * var(--learn-scale));
+  line-height:1.72;
+  font-weight:800;
+  color:#173a56;
+}
+#lesson9 #answerBox9 > p{
+  font-size:calc(1.20rem * var(--learn-scale));
+  line-height:1.76;
+  color:#29465e;
+}
+#lesson9 #answerBox9 > .answer-note{
+  font-size:calc(1.08rem * var(--learn-scale));
+  line-height:1.68;
+}
+/* Desktop: English answer two clear steps above the Chinese translation. */
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  #lesson9 #answerBox9 > strong{font-size:calc(1.72rem * var(--learn-scale));line-height:1.68}
+  #lesson9 #answerBox9 > p{font-size:calc(1.28rem * var(--learn-scale));}
+  #lesson9 #answerBox9 > .answer-note{font-size:calc(1.14rem * var(--learn-scale));}
+}
+/* Tablet portrait + landscape: preserve the same visual hierarchy at tablet reading scale. */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  #lesson9 #answerBox9 > strong{font-size:calc(1.72rem * var(--learn-scale));line-height:1.68}
+  #lesson9 #answerBox9 > p{font-size:calc(1.32rem * var(--learn-scale));}
+  #lesson9 #answerBox9 > .answer-note{font-size:calc(1.20rem * var(--learn-scale));}
+}
+/* Mobile: keep English clearly primary without crowding the narrow card. */
+@media(max-width:540px){
+  #lesson9 #answerBox9 > strong{font-size:calc(1.50rem * var(--learn-scale));line-height:1.68}
+  #lesson9 #answerBox9 > p{font-size:calc(1.18rem * var(--learn-scale));}
+  #lesson9 #answerBox9 > .answer-note{font-size:calc(1.08rem * var(--learn-scale));}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">

@@ -467,6 +467,71 @@
   .lesson .sentence{font-size:calc(1.24rem * var(--learn-scale));line-height:1.62}
 }
 </style>
+
+<style id="cross-round-reference-scale-v23">
+/* v23: all-device consistency pass. The yellow reference-answer English is the reading-size benchmark for same-level English content. */
+/* Keep main English content consistent across rounds while preserving special hierarchy rules. */
+.lesson .sentence,
+.lesson .stage .choice:not(.choice-zh),
+.lesson .stage:has(.context .numbered-line) .context{
+  font-size:calc(1.34rem * var(--learn-scale));
+}
+/* Numbered content always uses hanging alignment after the number. */
+.lesson .context .numbered-line{
+  display:grid;
+  grid-template-columns:1.45em minmax(0,1fr);
+  column-gap:.16em;
+  align-items:start;
+}
+.lesson .context .numbered-num{display:block}
+.lesson .context .numbered-text{display:block;min-width:0}
+/* Round 8 A/B/C overview: give the label breathing room and keep wrapped English aligned to its first word. */
+.lesson .multi-prompt-context .prompt-row{
+  display:grid;
+  grid-template-columns:max-content minmax(0,1fr);
+  column-gap:.68em;
+  align-items:start;
+}
+/* Solution Bank: English leads; Chinese is smaller and separated. */
+.lesson .translation-note.solution-bank .chunk-pair{gap:.58em}
+.lesson .translation-note.solution-bank .chunk-zh{font-size:.86em;font-weight:500}
+
+/* Desktop benchmark = desktop yellow reference-answer English. */
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  .lesson .sentence,
+  .lesson .stage .choice:not(.choice-zh),
+  .lesson .stage:has(.context .numbered-line) .context{
+    font-size:calc(1.40rem * var(--learn-scale));
+    line-height:1.68;
+  }
+  /* Dense multi-question overview remains one level calmer. */
+  .lesson .context.multi-prompt-context{font-size:calc(1.16rem * var(--learn-scale));line-height:1.68}
+}
+/* Tablet portrait + landscape benchmark = tablet yellow reference-answer English. */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .sentence,
+  .lesson .stage .choice:not(.choice-zh),
+  .lesson .stage:has(.context .numbered-line) .context{
+    font-size:calc(1.46rem * var(--learn-scale));
+    line-height:1.70;
+  }
+  .lesson .context.multi-prompt-context{font-size:calc(1.26rem * var(--learn-scale));line-height:1.70}
+}
+/* Mobile benchmark = mobile yellow reference-answer English. */
+@media(max-width:540px){
+  .lesson .sentence,
+  .lesson .stage .choice:not(.choice-zh),
+  .lesson .stage:has(.context .numbered-line) .context{
+    font-size:calc(1.30rem * var(--learn-scale));
+    line-height:1.66;
+  }
+  .lesson .context.multi-prompt-context{font-size:calc(1.12rem * var(--learn-scale));line-height:1.64}
+  .lesson .multi-prompt-context .prompt-row{column-gap:.48em}
+  .lesson .translation-note.solution-bank .chunk-pair{gap:.42em}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">

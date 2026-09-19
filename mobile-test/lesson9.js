@@ -12,7 +12,7 @@
   const revision = 'For example, we can explain confusing ideas to one another and use simple examples to make them clearer.';
   const prompt = 'Should students be allowed to use smartphones in class?';
   const context = (title, lines) => `<div class="context"><b>${title}</b>${lines.map(s=>`<div>${s}</div>`).join('')}</div>`;
-  const paragraph = lines => lines.map((s,i)=>`${i+1}. ${s}`);
+  const paragraph = lines => lines.map((s,i)=>`<span class="four-sentence-line"><span class="four-sentence-num">${i+1}.</span><span class="four-sentence-text">${s}</span></span>`);
   const choices = (items, right, explanation) => `<div class="r9-choices choices" data-right="${right}" data-explanation="${explanation}">${items.map((s,i)=>`<button type="button" class="choice" data-index="${i}">${s}</button>`).join('')}</div><div class="feedback" role="status" aria-live="polite"></div><button type="button" class="retry-btn" hidden>重做一次</button>`;
   const task = (n,title,body) => `<article class="stage" data-task="${n}"><span class="tag">任務 ${n}｜${title}</span>${body}<button type="button" class="task-back" data-back="${Math.ceil(n/2)-1}">${n<3?'← 回到上一頁（首頁）':'← 回到上一頁'}</button></article>`;
   const section=document.createElement('section'); section.className='lesson'; section.id='lesson9'; section.style.cssText='max-width:840px;margin:0 auto';

@@ -261,6 +261,41 @@
 }
 </style>
 
+
+<style id="visual-hierarchy-v16">
+/* v16: the actual English prompt leads; option-card text is one visual step lower. */
+.lesson .stage:has(.context.question-context) .choice:not(.choice-zh){
+  font-size:calc(1.24rem * var(--learn-scale));
+  line-height:1.64;
+}
+/* Four-sentence displays: preserve the existing vertical rhythm, but use a hanging indent
+   so wrapped lines align with the sentence text rather than the number. */
+.lesson .context .four-sentence-line{
+  display:grid;
+  grid-template-columns:1.35em minmax(0,1fr);
+  column-gap:.12em;
+  align-items:start;
+}
+.lesson .context .four-sentence-num{
+  display:block;
+  text-align:left;
+}
+.lesson .context .four-sentence-text{
+  display:block;
+  min-width:0;
+}
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  .lesson .stage:has(.context.question-context) .choice:not(.choice-zh){font-size:calc(1.22rem * var(--learn-scale));}
+}
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .stage:has(.context.question-context) .choice:not(.choice-zh){font-size:calc(1.28rem * var(--learn-scale));}
+}
+@media(max-width:540px){
+  .lesson .stage:has(.context.question-context) .choice:not(.choice-zh){font-size:calc(1.20rem * var(--learn-scale));}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">

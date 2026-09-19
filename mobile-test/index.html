@@ -321,6 +321,61 @@
 }
 </style>
 
+
+<style id="answer-readability-v18">
+/* v18: 提示／參考答案區在桌機、平板、手機同步提升可讀性。
+   英文參考答案以同頁主要英文閱讀字級為基準；中文依主次比例同步放大。 */
+.lesson .translation-card > p:not(.zh-prompt){
+  font-size:calc(1.22rem * var(--learn-scale));
+  line-height:1.78;
+  color:#29465e;
+}
+.lesson .hint-box{
+  font-size:calc(1.18rem * var(--learn-scale));
+  line-height:1.72;
+}
+.lesson .answer-box strong{
+  font-size:calc(1.34rem * var(--learn-scale));
+  line-height:1.72;
+}
+.lesson .answer-box p{
+  font-size:calc(1.20rem * var(--learn-scale));
+  line-height:1.76;
+}
+.lesson .answer-note{
+  font-size:calc(1.08rem * var(--learn-scale));
+  line-height:1.68;
+}
+
+/* Desktop */
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  .lesson .translation-card > p:not(.zh-prompt){font-size:calc(1.28rem * var(--learn-scale));}
+  .lesson .hint-box{font-size:calc(1.24rem * var(--learn-scale));}
+  .lesson .answer-box strong{font-size:calc(1.40rem * var(--learn-scale));}
+  .lesson .answer-box p{font-size:calc(1.26rem * var(--learn-scale));}
+  .lesson .answer-note{font-size:calc(1.14rem * var(--learn-scale));}
+}
+
+/* Tablet portrait + landscape */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .translation-card > p:not(.zh-prompt){font-size:calc(1.34rem * var(--learn-scale));}
+  .lesson .hint-box{font-size:calc(1.30rem * var(--learn-scale));}
+  .lesson .answer-box strong{font-size:calc(1.46rem * var(--learn-scale));}
+  .lesson .answer-box p{font-size:calc(1.32rem * var(--learn-scale));}
+  .lesson .answer-note{font-size:calc(1.20rem * var(--learn-scale));}
+}
+
+/* Mobile */
+@media(max-width:540px){
+  .lesson .translation-card > p:not(.zh-prompt){font-size:calc(1.22rem * var(--learn-scale));}
+  .lesson .hint-box{font-size:calc(1.18rem * var(--learn-scale));}
+  .lesson .answer-box strong{font-size:calc(1.30rem * var(--learn-scale));}
+  .lesson .answer-box p{font-size:calc(1.18rem * var(--learn-scale));}
+  .lesson .answer-note{font-size:calc(1.08rem * var(--learn-scale));}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">

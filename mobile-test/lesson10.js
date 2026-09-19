@@ -126,7 +126,7 @@
     <div class="lesson-head"><small>第10回：四句話寫作</small><h1>換個題目，也能寫出四句</h1><p>選擇 → 理由 → 具體例子 → 結果</p></div>
     <div class="progress-row"><div class="bar"><i id="bar10"></i></div><span class="progress-text" id="progress10"></span></div>
     <div class="question-banner" id="banner10"><strong>本回重點</strong><span id="bannerText10">先看懂題目，再把同一種發展方式用在不同主題。</span></div>
-    ${task(1, '看懂題目', `<h2>這個題目要你完成什麼？</h2>${context('題目', [prompt])}<div class="choices r10-single"><button class="choice">比較 Canva 和短影片的所有優缺點。</button><button class="choice" data-correct="true">選擇一項數位技能，並用理由和例子支持自己的選擇。</button><button class="choice">說明製作簡報和剪輯影片的詳細操作步驟。</button></div><div class="feedback" role="status" aria-live="polite"></div><button type="button" class="retry-btn" hidden>重做一次</button>`)}
+    ${task(1, '看懂題目', `<h2>這個題目要你完成什麼？</h2>${context('題目', [prompt])}<div class="choices r10-single"><button class="choice choice-zh">比較 Canva 和短影片的所有優缺點。</button><button class="choice choice-zh" data-correct="true">選擇一項數位技能，並用理由和例子支持自己的選擇。</button><button class="choice choice-zh">說明製作簡報和剪輯影片的詳細操作步驟。</button></div><div class="feedback" role="status" aria-live="polite"></div><button type="button" class="retry-btn" hidden>重做一次</button>`)}
     ${task(2, '選擇數位技能', `<h2>你比較想學哪一項技能？</h2>${context('題目', [prompt])}<p class="instruction">兩種選擇都可以。選定後，繼續找出能互相接續的理由、例子和結果。</p><div class="choices" id="skillChoices10"></div><div class="feedback" id="skillFeedback10" role="status"></div>`)}
     ${task(3, '選擇合適的理由', `<h2>哪一個理由最能支持你的選擇？</h2>${context('題目', [prompt])}<div id="reasonTask10"></div>`)}
     ${task(4, '用具體例子支持理由', `<h2>哪個例子能具體支持前面的理由？</h2>${context('題目', [prompt])}<div id="exampleTask10"></div>`)}
@@ -140,7 +140,7 @@
   document.querySelector('main').appendChild(section);
 
   const style = document.createElement('style');
-  style.textContent = `#lesson10 [hidden]{display:none!important} #lesson10 .choice[aria-pressed="true"]{border-color:#527ba1;background:#edf4fa} #lesson10 .course-name{display:block;font-weight:900;font-size:1.08rem} #lesson10 .course-en{display:block;color:#62788b;font-weight:700;margin-top:2px} #lesson10 .answer-box.show{display:block} #lesson10 .context div{margin-top:5px}`;
+  style.textContent = `#lesson10 [hidden]{display:none!important} #lesson10 .choice[aria-pressed="true"]{border-color:#527ba1;background:#edf4fa} #lesson10 .course-name{display:block;color:#60758a;font-weight:750;font-size:.86em;line-height:1.42} #lesson10 .course-en{display:block;color:#173550;font-weight:850;font-size:1.04em;line-height:1.5;margin-top:4px} #lesson10 .answer-box.show{display:block} #lesson10 .context div{margin-top:5px}`;
   document.head.appendChild(style);
 
   const $ = id => section.querySelector('#' + id);

@@ -191,6 +191,34 @@
 }
 </style>
 
+
+<style id="visual-hierarchy-v14">
+/* v14：依實際教學功能整理視覺主次，並分開處理桌機與觸控裝置。 */
+/* 題目是主要閱讀內容：略大、加粗。 */
+.lesson .question-banner, .lesson .context{font-weight:800}
+.lesson .question-banner > span, .lesson .context > div{font-weight:800}
+/* 純中文選項為輔助判斷時，統一同組字級，避免單一卡片異常放大。 */
+.lesson .choice.choice-zh{font-weight:750}
+/* 中英並列選項：英文主體深色醒目，中文輔助略淺、略小。 */
+#lesson10 .choice .course-name{color:#60758a;font-size:.86em;font-weight:750;line-height:1.42}
+#lesson10 .choice .course-en{color:#173550;font-size:1.04em;font-weight:850;line-height:1.5;margin-top:4px}
+
+/* 電腦版：卡片空間較大，因此提高主要題目與英文選項的實際閱讀字級。 */
+@media (min-width:921px) and (hover:hover), (min-width:1367px){
+  .lesson .question-banner,.lesson .context{font-size:calc(1.52rem * var(--learn-scale));line-height:1.72}
+  .lesson .question-banner strong,.lesson .context b{font-size:calc(1.22rem * var(--learn-scale));line-height:1.45}
+  .lesson .choice:not(.choice-zh){font-size:calc(1.48rem * var(--learn-scale));line-height:1.66;font-weight:800}
+  .lesson .choice.choice-zh{font-size:calc(1.28rem * var(--learn-scale));line-height:1.62}
+}
+/* 平板：中文輔助選項不跟著主要英文一起放大；英文題目維持第一視覺。 */
+@media (min-width:541px) and (max-width:920px),
+       (min-width:921px) and (max-width:1366px) and (orientation:landscape) and (hover:none){
+  .lesson .question-banner,.lesson .context{font-size:calc(1.58rem * var(--learn-scale));font-weight:800}
+  .lesson .choice:not(.choice-zh){font-size:calc(1.52rem * var(--learn-scale))}
+  .lesson .choice.choice-zh{font-size:calc(1.34rem * var(--learn-scale));font-weight:750}
+}
+</style>
+
 </head>
 <body>
 <main class="shell">
@@ -584,6 +612,20 @@ finishBtn8.onclick=()=>showStage8(4);againBtn8.onclick=()=>location.reload();
   };
   classify(document);
   new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1) classify(n)}))).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
+
+<script id="choice-role-v14">
+(function(){
+  function classifyChoices(root){
+    (root || document).querySelectorAll('.lesson .choice').forEach(function(btn){
+      var text=(btn.textContent||'').trim();
+      if(text && !/[A-Za-z]/.test(text)) btn.classList.add('choice-zh');
+    });
+  }
+  classifyChoices(document);
+  new MutationObserver(function(muts){muts.forEach(function(m){m.addedNodes.forEach(function(n){if(n.nodeType===1) classifyChoices(n);});});}).observe(document.body,{childList:true,subtree:true});
 })();
 </script>
 
